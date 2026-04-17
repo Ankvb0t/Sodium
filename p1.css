@@ -119,7 +119,6 @@ a, a:visited {
 /* 顶部 */
 #header {
     /* display: grid; */
-
     height: var(--header-height);
     padding-bottom: var(--topbar-height);
     background-repeat: no-repeat;
@@ -380,4 +379,18 @@ a, a:visited {
 #search-top-box {
     position: absolute;
     top: 10px;
+}
+
+#top-bar .open-menu a {
+    top: 0;
+    left: 0;
+    border-radius: var(--common-box-radius-mn);
+    border: none;
+    height: 40px;
+    width: 40px;
+    align-items: center;
+    line-height: 40px;
+    box-shadow: var(--common-box-shadow-2);
+    background-color: var(--sodium-bg-color);
+    color: var(--sodium-text-color)
 }
