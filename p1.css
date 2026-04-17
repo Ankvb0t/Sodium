@@ -1,0 +1,383 @@
+/* source: http://ah-sandbox.wikidot.com/component:collapsible-sidebar-x1 */
+ 
+#top-bar .open-menu a {
+        position: fixed;
+        top: 0.5em;
+        left: 0.5em;
+        z-index: 5;
+        font-family: 'Nanum Gothic', san-serif;
+        font-size: 30px;
+        font-weight: 700;
+        width: 30px;
+        height: 30px;
+        line-height: 0.9em;
+        text-align: center;
+        border: 0.2em solid #888;
+        background-color: #fff;
+        border-radius: 3em;
+        color: #888;
+        pointer-events: auto;
+}
+ 
+@media not all and (max-width: 767px) {
+ 
+    #top-bar .mobile-top-bar {
+        display: block;
+        pointer-events: none;
+    }
+ 
+    #top-bar .mobile-top-bar li {
+        display: none;
+    }
+ 
+    #main-content {
+        max-width: 44.5rem;
+        margin: 0 auto;
+        padding: 0;
+        transition: max-width 0.2s ease-in-out;
+    }
+ 
+    #side-bar {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: -18rem;
+        width: 15.25rem;
+        height: 100%;
+        margin: 0;
+        overflow-x: hidden;
+        overflow-y: auto;
+        z-index: 10;
+        padding: 1em 1em 0 1em;
+        background-color: rgba(0,0,0,0.1);
+        transition: left 0.4s ease-in-out;
+ 
+        scrollbar-width: thin;
+    }
+ 
+    #side-bar:target {
+        left: 0;
+    }
+    #side-bar:focus-within {
+        left: 0;
+    }
+ 
+    #side-bar:target .close-menu {
+        display: block;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        margin-left: 17rem;
+        opacity: 0;
+        z-index: -1;
+        visibility: visible;
+    }
+    #side-bar:not(:target) .close-menu { display: none; }
+ 
+    #top-bar .open-menu a:hover {
+        text-decoration: none;
+    }
+}
+/* 主体修改 */
+
+div#container-wrap {
+    background: none;
+}
+
+#container {
+    background-color: var(--sodium-bg-color);
+}
+
+#content-wrap {
+    margin: 0 auto 0;
+    max-width: 100%;
+    border-radius: var(--common-box-radius-mx);
+    box-shadow: var(--common-box-shadow-1);
+    background-color: var(--sodium-sec-bg-color);
+}
+
+#main-content {
+    padding: 20px 5px 20px 5px;
+
+}
+
+blockquote, .blockquote {
+    border: 1px solid var(--sodium-border-color);
+    background-color: var(--sodium-bg-color);
+}
+
+::selection {
+    background-color: var(--fluorescent-green);
+}
+
+a, a:visited {
+    color: var(--sodium-link-color);
+}
+
+/* 顶部 */
+#header {
+    /* display: grid; */
+
+    height: var(--header-height);
+    padding-bottom: var(--topbar-height);
+    background-repeat: no-repeat;
+    background-size: var(--logo-width) var(--logo-width);
+    background-position: center;
+    background-image: url('http://jellybox.wikidot.com/local--files/smms/logo2.png');
+}
+
+#header h1 {
+    position: relative;
+    top: calc(var(--header-height) * 0.5);
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+#header h1 a {
+    padding: 0;
+    font-size: 0;
+    text-shadow: none;
+    color: var(--sodium-text-color);
+}
+
+#header h1 a span::before {
+    word-break: keep-all;
+    content: "SCP基金会";
+    font-size: 45px;
+    color: var(--sodium-text-color);
+}
+
+#header h2 {
+    position: relative;
+    top: calc(var(--header-height) * 0.5 + 35px);
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+#header h2 span {
+    padding: 0;
+    font-size: 0;
+    text-shadow: none;
+    color: var(--sodium-text-color);
+}
+
+#header h2 span::before {
+    word-break: keep-all;
+    font-size: 15px;
+    content: "-控制 -收容 -保护";
+}
+
+/* TOP BAR */
+.mobile-top-bar {
+    display: none;
+}
+
+#top-bar {
+    height: var(--topbar-height);
+    top: calc(var(--header-height) * 1);
+}
+
+.top-bar {
+    display: flex;
+}
+
+#top-bar .top-bar ul {
+    display: grid;
+    flex-grow: 1;
+    grid-auto-flow: column;
+}
+
+#top-bar .top-bar ul li a {    
+    border-radius: var(--common-box-radius-mn);
+    color: var(--sodium-text-color);
+    line-height: 0;
+    border: none;
+    padding-top: calc(var(--topbar-height) * 0.5);
+    padding-bottom: calc(var(--topbar-height) * 0.5);
+}
+
+#top-bar .top-bar ul li a:hover {
+    background-color: var(--light-grey);
+}
+
+#top-bar .top-bar ul > li > ul {
+    display: grid;
+    grid-auto-flow: row;
+    overflow: hidden;
+    border-radius: var(--common-box-radius-mn);
+    box-shadow: var(--common-box-shadow-2);
+    border: none;
+}
+
+#top-bar ul li.sfhover ul li a {
+    border: none;
+}
+
+#top-bar .top-bar ul > li > ul > li a {
+    background-color: var(--sodium-sec-bg-color);
+    border-radius: 0;
+    padding-top: calc(var(--topbar-height) * 0.25);
+    padding-bottom: calc(var(--topbar-height) * 0.25);
+    height: auto;
+}
+
+/* 移动端适配 */
+
+@media (max-width: 767px) {
+    #top-bar .top-bar {
+        display: none;
+    }
+
+    #top-bar .mobile-top-bar {
+        margin: 0 auto;
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+    }
+
+    #top-bar .mobile-top-bar ul {
+        display: grid;
+        flex-grow: 1;
+        grid-auto-flow: column;
+    }
+
+    #top-bar .mobile-top-bar ul li a {
+        border-radius: var(--common-box-radius-mn);
+        color: var(--sodium-text-color);
+        line-height: 0;
+        border: none;
+        padding-top: calc(var(--topbar-height) * 0.5);
+        padding-bottom: calc(var(--topbar-height) * 0.5);
+    }
+
+    #top-bar .mobile-top-bar ul li a:hover {
+        background-color: var(--light-grey);
+    }
+
+    #top-bar .mobile-top-bar ul > li > ul {
+        display: grid;
+        grid-auto-flow: row;
+        overflow: hidden;
+        border-radius: var(--common-box-radius-mn);
+        box-shadow: var(--common-box-shadow-2);
+        border: none;
+    }
+
+    #top-bar .mobile-top-bar ul > li > ul > li a {
+    background-color: var(--sodium-sec-bg-color);
+    border-radius: 0;
+    padding-top: calc(var(--topbar-height) * 0.25);
+    padding-bottom: calc(var(--topbar-height) * 0.25);
+    height: auto;
+    }
+}
+
+/* 用户头像 */
+#login-status {
+    position: relative;
+    font-size: 0;
+}
+
+#login-status span.printuser {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 0px;
+}
+
+#login-status span.printuser img.small {
+    /* 这优先级怎么这么高 */    
+    background-image: none !important;
+    height: var(--login-status-width);
+    width: var(--login-status-width);
+    border-radius: var(--common-box-radius-mn);
+    box-shadow: var(--common-box-shadow-2);
+    margin: 0;
+    padding: 0;
+
+}
+
+#login-status a#my-account {
+    display: none;
+}
+
+#login-status a#account-topbutton {
+    position: absolute;
+    top: 10px;
+    right: calc(var(--login-status-right) + var(--login-status-width));
+    margin: 0;
+    padding: 0;
+    display: block;
+    height: var(--login-status-width);
+    width: var(--login-status-width);
+    border: none;
+    background-image: url('http://jellybox.wikidot.com/local--files/smms/cogwheel.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 22px 22px;
+    filter: contrast(0.5);
+    border-radius: var(--common-box-radius-mn);
+    /* box-shadow: var(--common-box-shadow-2); */
+}
+
+#login-status #account-options {
+    position: absolute;
+    top: 43px;
+    right: var(--login-status-right);
+    font-size: 10px;
+    border: none;
+    border-radius: var(--common-box-radius-mn);
+    box-shadow: var(--common-box-shadow-1);
+}
+
+#login-status #account-options ul li {
+    text-transform: uppercase;
+    text-align: center;
+    padding: 5px 10px;
+}
+
+#login-status #account-options ul li a {
+    color: var(--sodium-text-color);
+}
+
+#login-status #account-options ul li:hover {
+    background-color: var(--light-grey);
+}
+
+#login-status #account-options ul li a:hover {
+    color: var(--sodium-text-color);
+    text-decoration: none;
+}
+
+/* 搜索框 */
+#search-top-box input#search-top-box-input {
+    display: none;
+}
+
+#search-top-box input.button.btn {
+    position: absolute;
+    top: 10px;
+    right: calc(var(--login-status-right) * 2 + var(--login-status-width) * 2);
+    padding: 0;
+    margin: 0;
+    height: var(--login-status-width);
+    width: var(--login-status-width);
+    border: none;
+    background: transparent;
+    font-size: 0;
+    box-shadow: none;
+    filter: contrast(0.5);
+    /* box-shadow: var(--common-box-shadow-2); */
+    background-image: url(http://jellybox.wikidot.com/local--files/smms/searchstyle01.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+
+}
+
+#search-top-box {
+    position: absolute;
+    top: 10px;
+}
